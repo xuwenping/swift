@@ -9,6 +9,7 @@
 import UIKit
 
 var todos: [TodoModel] = []
+var filteredTodos: [TodoModel] = []
 
 func dateFromString(dateStr: String) -> NSDate? {
     let dateFormatter = NSDateFormatter()
@@ -17,7 +18,7 @@ func dateFromString(dateStr: String) -> NSDate? {
     return date
 }
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -32,6 +33,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         navigationItem.leftBarButtonItem = editButtonItem()
         
+        var contentOffset = tableView.contentOffset
+        contentOffset.y = searchDisplayController!.searchBar.frame.size.height
+        tableView.contentOffset = contentOffset
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,7 +46,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     // MARk - UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todos.count
+        if tableView == searchDisplayController?.searchResultsTableView {
+            return filteredTodos.count
+        }
+        else {
+            return todos.count
+        }
     }
     
     // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -49,8 +59,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("todoCell") as! UITableViewCell
+        var todo: TodoModel
         
-        var todo = todos[indexPath.row] as TodoModel
+        if tableView == searchDisplayController?.searchResultsTableView {
+            todo = filteredTodos[indexPath.row] as TodoModel
+        }
+        else {
+            todo = todos[indexPath.row] as TodoModel
+        }
         
         var image  = cell.viewWithTag(101) as! UIImageView
         var title = cell.viewWithTag(102) as! UILabel
@@ -78,6 +94,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 80
+    }
 
     func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         let todo = todos.removeAtIndex(sourceIndexPath.row)
@@ -90,9 +110,33 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.setEditing((editing), animated: animated)
     }
     
+    // Moving/reordering
+    
+    // Allows the reorder accessory view to optionally be shown for a particular row. By default, the reorder control will be shown only if the datasource implements -tableView:moveRowAtIndexPath:toIndexPath:
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return editing
+    }
+    
+    // search
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        
+        filteredTodos = todos.filter(){$0.title.rangeOfString(searchString) != nil}
+        return true
+    }
+    
     @IBAction func close(segue: UIStoryboardSegue) {
         println("close")
         tableView.reloadData()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "EditTodo" {
+            var vc = segue.destinationViewController as! DetailViewController
+            var indexPath = tableView.indexPathForSelectedRow()
+            if let index = indexPath {
+                vc.todo = todos[index.row]
+            }
+        }
     }
 }
 

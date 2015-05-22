@@ -18,11 +18,35 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var todoItem: UITextField!
     @IBOutlet weak var todoDate: UIDatePicker!
     
+    var todo: TodoModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         todoItem.delegate = self
+        
+        if todo == nil {
+            childButton.selected = true
+            navigationController?.title = "new add Todo"
+        }
+        else {
+            navigationController?.title = "Edit Todo"
+            if todo?.image == "selected-child" {
+                childButton.selected = true
+            }
+            else if todo?.image == "selected-phone" {
+                phoneButton.selected = true
+            }
+            else if todo?.image == "selected-shopping-cart" {
+                shoppingButton.selected = true
+            }
+            else if todo?.image == "selected-travel" {
+                travelButton.selected = true
+            }
+        }
+        
+        todoItem.text = todo?.title
+        todoDate.setDate((todo?.date)!, animated: false)
 
         // Do any additional setup after loading the view.
     }
@@ -74,9 +98,16 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             image = "selected-travel"
         }
         
-        let uuid = NSUUID.init().UUIDString
-        var todo = TodoModel(id: uuid, image: image, title: todoItem.text, date: todoDate.date)
-        todos.append(todo)
+        if todo == nil {
+            let uuid = NSUUID.init().UUIDString
+            var todo = TodoModel(id: uuid, image: image, title: todoItem.text, date: todoDate.date)
+            todos.append(todo)
+        }
+        else {
+            todo?.image = image
+            todo?.title = todoItem.text
+            todo?.date = todoDate.date
+        }
         
     }
     
