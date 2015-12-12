@@ -46,7 +46,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         }
         
         todoItem.text = todo?.title
-        todoDate.setDate((todo?.date)!, animated: false)
+        //todoDate.setDate((todo?.date)!, animated: false)
 
         // Do any additional setup after loading the view.
     }
