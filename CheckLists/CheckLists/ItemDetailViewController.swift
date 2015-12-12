@@ -1,5 +1,5 @@
 //
-//  AddItemTableViewController.swift
+//  ItemDetailViewController.swift
 //  CheckLists
 //
 //  Created by devinxu on 8/1/15.
@@ -8,90 +8,223 @@
 
 import UIKit
 
-class AddItemTableViewController: UITableViewController {
+protocol ItemDetailViewControllerDelegate: class {
+    func itemDetailViewControllerDidCancel(contorller: ItemDetailViewController)
+    
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishAddingItem item: CheckListItem)
+    
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishEditingItem item: CheckListItem)
+}
 
+class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
+    @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    
+    @IBOutlet weak var textFiled: UITextField!
+    
+    @IBOutlet weak var shouldReminderSwitch: UISwitch!
+    
+    @IBOutlet weak var dueDateLabel: UILabel!
+    
+    weak var delegate: ItemDetailViewControllerDelegate?
+    
+    var itemToEdit: CheckListItem?
+    
+    var dueDate = NSDate()
+    
+    var datePickerVisible = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        tableView.rowHeight = 44
+        
+        if let item = itemToEdit {
+            title = "Edit Item"
+            
+            textFiled.text = item.text
+            doneBarButton.enabled = true
+            shouldReminderSwitch.on = item.shouldReminder
+            dueDate = item.dueDate
+        }
+        
+        updateDueDateLabel()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if indexPath.section == 1 && indexPath.row == 1 {
+            return indexPath
+        }
+        else {
+            return nil
+        }
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        textFiled.becomeFirstResponder()
     }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        let oldText: NSString = textFiled.text
+        let newText: NSString = oldText.stringByReplacingCharactersInRange(range, withString: string)
+        
+        doneBarButton.enabled = (newText.length > 0)
+        
+        return true
     }
-
-    /*
+    
+    @IBAction func cancel() {
+//        dismissViewControllerAnimated(true, completion: nil)
+        delegate?.itemDetailViewControllerDidCancel(self)
+    }
+    
+    @IBAction func done() {
+        if let item = itemToEdit {
+            item.text = textFiled.text
+            item.shouldReminder = shouldReminderSwitch.on
+            item.dueDate = dueDate
+            item.scheduleNotification()
+            
+            delegate?.itemDetailViewController(self, didFinishEditingItem: item)
+        }
+        else {
+            let item = CheckListItem()
+            item.text = textFiled.text
+            item.checked = false
+            
+            item.shouldReminder = shouldReminderSwitch.on
+            item.dueDate = dueDate
+            item.scheduleNotification()
+            
+            delegate?.itemDetailViewController(self, didFinishAddingItem: item)
+        }
+    }
+    
+    func updateDueDateLabel() {
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        formatter.timeStyle = .ShortStyle
+        dueDateLabel.text = formatter.stringFromDate(dueDate)
+    }
+    
+    func showDatePicker() {
+        datePickerVisible = true
+        
+        let indexPathDateRow = NSIndexPath(forRow: 1, inSection: 1)
+        let indexPathDatePicker = NSIndexPath(forRow: 2, inSection: 1)
+        
+        if let dateCell = tableView.cellForRowAtIndexPath(indexPathDateRow) {
+            dateCell.detailTextLabel!.textColor = dateCell.detailTextLabel!.tintColor
+        }
+        
+        tableView.beginUpdates()
+        tableView.insertRowsAtIndexPaths([indexPathDatePicker], withRowAnimation: .Fade)
+        tableView.reloadRowsAtIndexPaths([indexPathDateRow], withRowAnimation: .None)
+        tableView.endUpdates()
+        
+        if let pickerCell = tableView.cellForRowAtIndexPath(indexPathDatePicker) {
+            let datePicker = pickerCell.viewWithTag(100) as! UIDatePicker
+            datePicker.setDate(dueDate, animated: false)
+        }
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
+        if indexPath.section == 1 && indexPath.row == 2 {
+            var cell: UITableViewCell! = tableView.dequeueReusableCellWithIdentifier("DatePickerCell") as? UITableViewCell
+            
+            if cell == nil {
+                cell = UITableViewCell(style: .Default, reuseIdentifier: "DatePickerCell")
+                cell.selectionStyle = .None
+                
+                let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 320, height: 216))
+                datePicker.tag = 100
+                cell.contentView.addSubview(datePicker)
+                
+                datePicker.addTarget(self, action: Selector("dateChanged:"), forControlEvents: .ValueChanged)
+            }
+            
+            return cell
+        }
+        else {
+            return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 1 && datePickerVisible {
+            return 3
+        }
+        else {
+            return super.tableView(tableView, numberOfRowsInSection: section)
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 1 && indexPath.row == 2 {
+            return 217
+        }
+        else {
+            return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+            
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        textFiled.resignFirstResponder()
+        
+        if indexPath.section == 1 && indexPath.row == 1 {
+            if !datePickerVisible {
+                showDatePicker()
+            }
+            else {
+                hideDatePicker()
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
+    
+    override func tableView(tableView: UITableView, var indentationLevelForRowAtIndexPath indexPath: NSIndexPath) -> Int {
+        if indexPath.section == 1 && indexPath.row == 2 {
+            indexPath = NSIndexPath(forRow: 0, inSection: indexPath.section)
+        }
+        
+        return super.tableView(tableView, indentationLevelForRowAtIndexPath: indexPath)
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    
+    func dateChanged(datePicker: UIDatePicker) {
+        dueDate = datePicker.date
+        updateDueDateLabel()
     }
-    */
-
+    
+    func hideDatePicker() {
+        if datePickerVisible {
+            datePickerVisible = false
+            
+            let indexPathRow = NSIndexPath(forRow: 1, inSection: 1)
+            let indexPathPicker = NSIndexPath(forRow: 2, inSection: 1)
+            
+            if let cell = tableView.cellForRowAtIndexPath(indexPathRow) {
+                cell.detailTextLabel!.textColor = UIColor(white: 0, alpha: 0.5)
+            }
+            
+            tableView.beginUpdates()
+            tableView.reloadRowsAtIndexPaths([indexPathRow], withRowAnimation: .None)
+            tableView.deleteRowsAtIndexPaths([indexPathPicker], withRowAnimation: .Fade)
+            tableView.endUpdates()
+        }
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        hideDatePicker()
+    }
+    
+    @IBAction func shouldReminderToggled(switchControl: UISwitch) {
+        textFiled.resignFirstResponder()
+        
+        if switchControl.on {
+            let notificationSettings = UIUserNotificationSettings(
+                                    forTypes: .Alert | .Sound, categories: nil)
+            UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        }
+    }
 }
