@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyLocations/CurrentLocationViewController.swift"
-            timestampString = "471601563.712957"
+            timestampString = "471703536.579335"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "updateLabels()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyLocations/CurrentLocationViewController.swift"
-            timestampString = "471601722.334549"
+            timestampString = "471703536.579335"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "updateLabels()"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "stopLocationManager()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
