@@ -2,22 +2,15 @@
 //  CategoryPickerViewController.swift
 //  MyLocations
 //
-//  Created by devinxu on 1/29/16.
+//  Created by devinxu on 2/9/16.
 //  Copyright © 2016 devinxu. All rights reserved.
 //
 
 import UIKit
 
-//protocol CategoryPickerViewControllerDelegate: class {
-//    func categoryPickerViewController(controller: CategoryPickerViewController,
-//                                      didSelectedCategory cell: String)
-//}
-
 class CategoryPickerViewController: UITableViewController {
     
-//    weak var delegate: CategoryPickerViewControllerDelegate?
-    
-    var selectedCategoryName = ""
+    var selectedCategoryName = "No Category"
     
     let categories = [
         "No Category",
@@ -26,65 +19,52 @@ class CategoryPickerViewController: UITableViewController {
         "Bookstore",
         "Club",
         "Grocery Store",
-        "Historic Buliding",
+        "Historic Building",
         "House",
         "Icecream Vendor",
         "Landmark",
-        "park"
+        "Park"
     ]
     
     var selectedIndexPath = NSIndexPath()
     
-    // MARK: -  UITableViewDataSource
+    // MARK: - UITableViewDataSource
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
     
-    override func  tableView(tableView: UITableView,
-                                cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView,
+            cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell")! as UITableViewCell
         
-        let categoryName = categories[indexPath.row]
-        cell.textLabel!.text = categoryName
+        let categroyName = categories[indexPath.row]
+        cell.textLabel!.text = categroyName
         
-        if categoryName == selectedCategoryName {
+        if categroyName == selectedCategoryName {
             cell.accessoryType = .Checkmark
             selectedIndexPath = indexPath
         }
-        else
-        {
+        else {
             cell.accessoryType = .None
         }
         
         return cell
     }
     
-    // MARK - UITableViewDelegate
+    // MARK: - UITableViewDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row != selectedIndexPath.row {
             if let newCell = tableView.cellForRowAtIndexPath(indexPath) {
                 newCell.accessoryType = .Checkmark
             }
-            
+        
             if let oldCell = tableView.cellForRowAtIndexPath(selectedIndexPath) {
                 oldCell.accessoryType = .None
             }
-            
+        
             selectedIndexPath = indexPath
-            //selectedCategoryName = categories[indexPath.row]
-            
-//            delegate?.categoryPickerViewController(self, didSelectedCategory: categories[indexPath.row])
-        }
-    }
-    
-    // MARK - prepareForSegue
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "PickedCategory" {
-            let cell = sender as! UITableViewCell
-            if let indexPath = tableView.indexPathForCell(cell) {
-                selectedCategoryName = categories[indexPath.row]
-            }
         }
     }
 }
+

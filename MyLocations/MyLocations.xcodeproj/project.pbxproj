@@ -15,6 +15,8 @@
 		2889172A1C19BE4E004906D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 288917281C19BE4E004906D3 /* LaunchScreen.storyboard */; };
 		288917351C19BE4E004906D3 /* MyLocationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288917341C19BE4E004906D3 /* MyLocationsTests.swift */; };
 		288917401C19BE4E004906D3 /* MyLocationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2889173F1C19BE4E004906D3 /* MyLocationsUITests.swift */; };
+		28DB4B6D1C6A3BB100552C1E /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DB4B6C1C6A3BB100552C1E /* CategoryPickerViewController.swift */; };
+		28DEB4491C45365F0016FA40 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DEB4481C45365F0016FA40 /* LocationDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		2889173B1C19BE4E004906D3 /* MyLocationsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyLocationsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2889173F1C19BE4E004906D3 /* MyLocationsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationsUITests.swift; sourceTree = "<group>"; };
 		288917411C19BE4E004906D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28DB4B6C1C6A3BB100552C1E /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
+		28DEB4481C45365F0016FA40 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				288917261C19BE4E004906D3 /* Assets.xcassets */,
 				288917281C19BE4E004906D3 /* LaunchScreen.storyboard */,
 				2889172B1C19BE4E004906D3 /* Info.plist */,
+				28DEB4481C45365F0016FA40 /* LocationDetailsViewController.swift */,
+				28DB4B6C1C6A3BB100552C1E /* CategoryPickerViewController.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -262,6 +268,8 @@
 				288917221C19BE4E004906D3 /* SecondViewController.swift in Sources */,
 				2889171E1C19BE4E004906D3 /* AppDelegate.swift in Sources */,
 				288917201C19BE4E004906D3 /* CurrentLocationViewController.swift in Sources */,
+				28DB4B6D1C6A3BB100552C1E /* CategoryPickerViewController.swift in Sources */,
+				28DEB4491C45365F0016FA40 /* LocationDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +494,7 @@
 				288917461C19BE4E004906D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		288917471C19BE4E004906D3 /* Build configuration list for PBXNativeTarget "MyLocationsTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +503,7 @@
 				288917491C19BE4E004906D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2889174A1C19BE4E004906D3 /* Build configuration list for PBXNativeTarget "MyLocationsUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +512,7 @@
 				2889174C1C19BE4E004906D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
