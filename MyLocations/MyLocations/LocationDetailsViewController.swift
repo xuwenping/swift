@@ -18,8 +18,8 @@ private let dateFormatter: NSDateFormatter = {
     return formatter
 }()
 
-class LocationDetailsViewController: UITableViewController {
-//                                            CategoryPickerViewControllerDelegate {
+class LocationDetailsViewController: UITableViewController,
+                                            CategoryPickerViewControllerDelegate {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var latitudeLabel: UILabel!
@@ -141,14 +141,16 @@ class LocationDetailsViewController: UITableViewController {
         if segue.identifier == "PickCategory" {
             let controller = segue.destinationViewController as! CategoryPickerViewController
             controller.selectedCategoryName = categoryName
-//            controller.delegate = self;
+            controller.delegate = self;
         }
     }
     
     // MARK: - CategoryPickerViewControllerDelegate
-//    func categoryPickerViewController(controller: CategoryPickerViewController,didSelectedCategory cell: String) {
-//        categoryLabel.text = cell
-//    }
+    func categoryPickerViewController(controller: CategoryPickerViewController,didSelectedCategory cell: String) {
+        categoryLabel.text = cell
+        categoryName = cell
+        navigationController?.popViewControllerAnimated(true)
+    }
 }
 
 extension LocationDetailsViewController: UITextViewDelegate {

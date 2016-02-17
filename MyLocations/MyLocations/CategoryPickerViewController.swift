@@ -6,9 +6,16 @@
 //  Copyright © 2016 devinxu. All rights reserved.
 //
 
+protocol CategoryPickerViewControllerDelegate: class {
+    func categoryPickerViewController(controller: CategoryPickerViewController, didSelectedCategory cell: String)
+}
+
+
 import UIKit
 
 class CategoryPickerViewController: UITableViewController {
+    
+    var delegate: CategoryPickerViewControllerDelegate?
     
     var selectedCategoryName = "No Category"
     
@@ -64,6 +71,10 @@ class CategoryPickerViewController: UITableViewController {
             }
         
             selectedIndexPath = indexPath
+            
+            if let delegate = self.delegate {
+                delegate.categoryPickerViewController(self, didSelectedCategory: categories[indexPath.row])
+            }
         }
     }
 }
