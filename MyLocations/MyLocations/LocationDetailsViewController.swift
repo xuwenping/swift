@@ -50,6 +50,11 @@ class LocationDetailsViewController: UITableViewController {
         categoryLabel.text = categoryName
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        descriptionTextView.frame.size.width = view.frame.size.width - 30
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
