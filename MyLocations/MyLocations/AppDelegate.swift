@@ -7,12 +7,33 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    lazy var managedObjectContext: NSManagedObjectContext = {
+        if let modelURL = NSBundle.mainBundle().URLForResource("DataModel", withExtension: "mmod") {
+            
+            if let model = NSManagedObjectModel(contentsOfURL: modelURL) {
+                let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
+                
+                
+                let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+                let documentsDirectory = urls[0] as NSURL
+                let storeURL = documentsDirectory.URLByAppendingPathComponent("DataStore.sqlite")
+                
+                var error: NSError?
+                
+                if let store = coordinator.addPersistentStoreWithType(NSSQLiteStoreType,
+                    configuration: nil, URL: storeURL, options: nil, error: &error) {
+                    
+                }
+            }
+        }
+    }()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
