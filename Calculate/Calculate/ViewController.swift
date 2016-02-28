@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
     
     var userIsInTheMiddleOfTypingInput = false
+    
+    var brain = CalculateBrain()
 
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
@@ -34,13 +36,13 @@ class ViewController: UIViewController {
         }
     }
     
-    var operandStack  = Array<Double>()
+    var operandStack  = [Double]()
     @IBAction func enter() {
         userIsInTheMiddleOfTypingInput = false
         
-        operandStack.append(displayValue)
-        
-        print("the operand stack value: \(operandStack)")
+        if let result = brain.pushOperand(displayValue) {
+            displayValue = result
+        }
     }
     
     var displayValue: Double {
@@ -54,21 +56,28 @@ class ViewController: UIViewController {
     }
     
     @IBAction func operate(sender: UIButton) {
-        let operation = sender.currentTitle!
+        
         if userIsInTheMiddleOfTypingInput {
             enter()
         }
-        switch operation {
-        case "+": performOperation {$0 + $1}
-        case "−": performOperation {$1 - $0}
-        case "×": performOperation {$0 * $1}
-        case "÷": performOperation {$1 / $0}
-        case "√": performOperation {sqrt($0)}
-
-        default: break
+        
+        if let operation = sender.currentTitle {
+            if let result = brain.performOperation(operation) {
+                displayValue = result
+            }
+            else {
+                displayValue = 0
+            }
         }
     }
     
+    @IBAction func clearDisplay() {
+        operandStack.removeAll()
+        display.text = "0"
+        userIsInTheMiddleOfTypingInput = false
+        
+        print("clear the stack value: \(operandStack)")
+    }
     
     func performOperation(operation: (Double, Double) -> Double) {
         if operandStack.count >= 2 {
