@@ -18,6 +18,8 @@ class ViewController: UIViewController {
 
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
+        // when input digit is ".", need to check if display label contain ".",
+        // because the numeric contain multiple "." is illegal
         if digit.containsString(".") {
             if !display.text!.containsString(".") {
                 display.text = display.text! + digit
