@@ -40,17 +40,17 @@ class ViewController: UIViewController {
     @IBAction func enter() {
         userIsInTheMiddleOfTypingInput = false
         
-        if let result = brain.pushOperand(displayValue) {
+        if let result = brain.pushOperand(displayValue!) {
             displayValue = result
         }
     }
     
-    var displayValue: Double {
+    var displayValue: Double? {
         get {
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
         }
         set {
-            display.text = "\(newValue)"
+            display.text = "\(newValue!)"
             userIsInTheMiddleOfTypingInput = false
         }
     }
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
                 displayValue = result
             }
             else {
-                displayValue = 0
+                displayValue = nil
             }
         }
     }
