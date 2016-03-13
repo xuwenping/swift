@@ -14,6 +14,7 @@ class CalculateBrain {
         case Operand(Double)
         case UnaryOperation(String, Double -> Double)
         case BinaryOperation(String, (Double, Double) -> Double)
+        case Variable(String)
         
         var description: String {
             get {
@@ -24,6 +25,8 @@ class CalculateBrain {
                     return symbol
                 case .BinaryOperation(let symbol, _):
                     return symbol
+                case .Variable(let symbol):
+                    return symbol
                 }
             }
         }
@@ -32,7 +35,17 @@ class CalculateBrain {
     private var opStack = [Op]()
     private var knownOps = [String: Op]()
     
+    var variableValues = [String: Double]()
+    
+//    var description: String {
+//        
+//    }
+    
     init() {
+        func learnOp(op: Op) {
+            knownOps[op.description] = op
+        }
+        
         knownOps["+"] = Op.BinaryOperation("+") {$0 + $1}
         knownOps["−"] = Op.BinaryOperation("−") {$1 - $0}
         knownOps["×"] = Op.BinaryOperation("×") {$0 * $1}
@@ -62,7 +75,10 @@ class CalculateBrain {
                         return (operation(operand1, operand2), op2Evaluation.remainingOps)
                     }
                 }
+            case .Variable(let symbol):
+                return (variableValues["\(symbol)"], remainingOps)
             }
+            
         }
         
         return (nil, ops)
@@ -70,12 +86,18 @@ class CalculateBrain {
     
     func evaluate() -> Double? {
         let (result, remainder) = evaluate(opStack)
-        print("\(opStack) = \(result!) with \(remainder) left over"  )
+        print("\(opStack) = \(result) with \(remainder) left over"  )
         return result
     }
     
     func pushOperand(operand: Double) -> Double? {
         opStack.append(Op.Operand(operand))
+        
+        return evaluate()
+    }
+    
+    func pushOperand(symbol: String) -> Double? {
+        opStack.append(Op.Variable(symbol))
         
         return evaluate()
     }
@@ -86,5 +108,9 @@ class CalculateBrain {
         }
         
         return evaluate()
+    }
+    
+    func showHistory() -> String {
+        return "\(opStack)"
     }
 }

@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
     
+    @IBOutlet weak var operationHistory: UILabel!
+    
     var userIsInTheMiddleOfTypingInput = false
     
     var brain = CalculateBrain()
@@ -52,7 +54,10 @@ class ViewController: UIViewController {
             return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
         }
         set {
-            display.text = "\(newValue!)"
+            if let nValue = newValue {
+                display.text = "\(nValue)"
+                operationHistory.text = brain.showHistory()
+            }
             userIsInTheMiddleOfTypingInput = false
         }
     }
