@@ -37,9 +37,42 @@ class CalculateBrain {
     
     var variableValues = [String: Double]()
     
-//    var description: String {
-//        
-//    }
+    var description: String {
+        var (result, ops) = ("", opStack)
+        repeat {
+            var current: String?
+            (current, ops) = description(ops)
+            result = current == "" ? current! : "\(current!), \(result)"
+        } while ops.count > 0
+        
+        return result
+    }
+    
+    private func description(ops: [Op]) -> (result: String?, remainingOps: [Op]) {
+        if !ops.isEmpty {
+            var remainingOps = ops
+            let op = remainingOps.removeLast()
+            switch op {
+            case .Operand(let operand):
+                return ("\(operand)", remainingOps)
+            case .UnaryOperation(let symbol, _):
+                let operandEvaluation = description(remainingOps)
+                return ("\(symbol)(\(operandEvaluation.result!))", operandEvaluation.remainingOps)
+            case .BinaryOperation(let symbol, _):
+                let op1Evaluation = description(remainingOps)
+                if let operand1 = op1Evaluation.result {
+                    let op2Evaluation = description(op1Evaluation.remainingOps)
+                    if let operand2 = op2Evaluation.result {
+                        return ("(\(operand1)\(symbol)\(operand2))", op2Evaluation.remainingOps)
+                    }
+                }
+            case .Variable(let symbol):
+                return ("\(variableValues["\(symbol)"])", remainingOps)
+            }
+        }
+        
+        return ("?", ops)
+    }
     
     init() {
         func learnOp(op: Op) {
@@ -86,7 +119,7 @@ class CalculateBrain {
     
     func evaluate() -> Double? {
         let (result, remainder) = evaluate(opStack)
-        print("\(opStack) = \(result) with \(remainder) left over"  )
+        print("\(opStack) = \(result) with \(remainder) left over")
         return result
     }
     

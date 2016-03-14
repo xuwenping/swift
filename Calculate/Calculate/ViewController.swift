@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         set {
             if let nValue = newValue {
                 display.text = "\(nValue)"
-                operationHistory.text = brain.showHistory()
+                operationHistory.text = brain.description
             }
             userIsInTheMiddleOfTypingInput = false
         }
