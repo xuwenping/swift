@@ -56,7 +56,9 @@ class ViewController: UIViewController {
         set {
             if let nValue = newValue {
                 display.text = "\(nValue)"
-                
+            }
+            else {
+                display.text = "0"
             }
             operationHistory.text = brain.description
             userIsInTheMiddleOfTypingInput = false
@@ -80,11 +82,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clearDisplay() {
-        operandStack.removeAll()
-        display.text = "0"
+        //operandStack.removeAll()
+        displayValue = nil
         userIsInTheMiddleOfTypingInput = false
+        operationHistory.text = ""
         
-        print("clear the stack value: \(operandStack)")
+        //print("clear the stack value: \(operandStack)")
     }
     
     func performOperation(operation: (Double, Double) -> Double) {
