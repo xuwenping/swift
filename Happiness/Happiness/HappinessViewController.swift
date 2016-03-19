@@ -8,14 +8,16 @@
 
 import UIKit
 
-class HappinessViewController: UIViewController, scaleDataSource {
+class HappinessViewController: UIViewController, FaceViewDataSource {
     @IBOutlet weak var faceView: FaceView! {
         didSet {
-            faceView.delegate = self
+            faceView.dataSource = self
+            let recognizer = UIPinchGestureRecognizer(target: faceView, action: "scale:")
+            faceView.addGestureRecognizer(recognizer)
         }
     }
     
-    func getScaleDataSouce(sender: FaceView) -> CGFloat? {
-        return CGFloat(0.8)
+    func smilinessForFaceView(sender: FaceView) -> Double? {
+        return 0.7
     }
 }

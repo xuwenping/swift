@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol scaleDataSource: class {
-    func getScaleDataSouce(sender: FaceView) -> CGFloat?
+protocol FaceViewDataSource: class {
+    func smilinessForFaceView(sender: FaceView) -> Double?
 }
 
 @IBDesignable
 class FaceView: UIView {
-    weak var delegate: scaleDataSource?
+    weak var dataSource: FaceViewDataSource?
     
     var lineWidth: CGFloat = 3 {
         didSet {
@@ -35,7 +35,7 @@ class FaceView: UIView {
     }
     
     var faceRadius: CGFloat {
-        return min(bounds.size.width, bounds.size.height) / 2
+        return min(bounds.size.width, bounds.size.height) / 2 * scale
     }
     
     private struct Scaling {
@@ -89,6 +89,14 @@ class FaceView: UIView {
         return path
     }
     
+    func scale(gesture: UIPinchGestureRecognizer) {
+        if gesture.state == .Changed {
+            print("the getsture scale is \(gesture.scale)")
+            scale *= gesture.scale
+            gesture.scale = 1
+        }
+    }
+    
     override func drawRect(rect: CGRect) {
         let facePath = UIBezierPath(arcCenter: faceCenter, radius: faceRadius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
         facePath.lineWidth = lineWidth
@@ -102,8 +110,10 @@ class FaceView: UIView {
         let rightEyePaht = bezierPathForEye(.Right)
         rightEyePaht.stroke()
         
-        let smiliness = 0.75
+        
+        let smiliness = dataSource?.smilinessForFaceView(self) ?? 0.0
         let smilePath = bezierPathForSmile(smiliness)
+
         smilePath.stroke()
     }
 
