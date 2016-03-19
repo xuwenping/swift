@@ -19,15 +19,6 @@
                         <subviews>
                             <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="C7g-fi-x9W" customClass="FaceView" customModule="Happiness" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Us0-EY-dCf">
-                                        <rect key="frame" x="276" y="538" width="49" height="30"/>
-                                        <state key="normal" title="refresh"/>
-                                        <connections>
-                                            <action selector="refreshButton" destination="IRd-F6-0kS" eventType="touchUpInside" id="Mhh-4s-Kw3"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -39,6 +30,9 @@
                             <constraint firstAttribute="trailing" secondItem="C7g-fi-x9W" secondAttribute="trailing" id="mXc-Nz-Iuq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="faceView" destination="C7g-fi-x9W" id="gN9-tW-Qi9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYo-fA-yYm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,11 +8,14 @@
 
 import UIKit
 
-class HappinessViewController: UIViewController {
-
-    @IBAction func refreshButton() {
-        let faceView = FaceView()
-        faceView.lineWidth = 3
+class HappinessViewController: UIViewController, scaleDataSource {
+    @IBOutlet weak var faceView: FaceView! {
+        didSet {
+            faceView.delegate = self
+        }
     }
-
+    
+    func getScaleDataSouce(sender: FaceView) -> CGFloat? {
+        return CGFloat(0.8)
+    }
 }
