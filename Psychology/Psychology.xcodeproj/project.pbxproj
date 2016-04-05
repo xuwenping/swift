@@ -16,6 +16,8 @@
 		282E6A4A1CA95F940016C4FE /* PsychologyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E6A491CA95F940016C4FE /* PsychologyUITests.swift */; };
 		282E6A591CA96C240016C4FE /* HappinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E6A571CA96C240016C4FE /* HappinessViewController.swift */; };
 		282E6A5A1CA96C240016C4FE /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E6A581CA96C240016C4FE /* FaceView.swift */; };
+		282E6A5C1CAC2C700016C4FE /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E6A5B1CAC2C700016C4FE /* HistoryViewController.swift */; };
+		282E6A5E1CAD635C0016C4FE /* HistoryHappinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282E6A5D1CAD635C0016C4FE /* HistoryHappinessViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		282E6A4B1CA95F940016C4FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		282E6A571CA96C240016C4FE /* HappinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HappinessViewController.swift; sourceTree = "<group>"; };
 		282E6A581CA96C240016C4FE /* FaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
+		282E6A5B1CAC2C700016C4FE /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		282E6A5D1CAD635C0016C4FE /* HistoryHappinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryHappinessViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,8 @@
 				282E6A2D1CA95F940016C4FE /* Main.storyboard */,
 				282E6A301CA95F940016C4FE /* Assets.xcassets */,
 				282E6A351CA95F940016C4FE /* Info.plist */,
+				282E6A5B1CAC2C700016C4FE /* HistoryViewController.swift */,
+				282E6A5D1CAD635C0016C4FE /* HistoryHappinessViewController.swift */,
 			);
 			path = Psychology;
 			sourceTree = "<group>";
@@ -266,7 +272,9 @@
 				282E6A2C1CA95F940016C4FE /* PsychologyViewController.swift in Sources */,
 				282E6A591CA96C240016C4FE /* HappinessViewController.swift in Sources */,
 				282E6A2A1CA95F940016C4FE /* AppDelegate.swift in Sources */,
+				282E6A5C1CAC2C700016C4FE /* HistoryViewController.swift in Sources */,
 				282E6A5A1CA96C240016C4FE /* FaceView.swift in Sources */,
+				282E6A5E1CAD635C0016C4FE /* HistoryHappinessViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

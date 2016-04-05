@@ -32,8 +32,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="what do you see in your dreams?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="cn6-WL-H9j">
-                                <rect key="frame" x="20" y="20" width="560" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="what do you see in your dreams?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="cn6-WL-H9j">
+                                <rect key="frame" x="20" y="64" width="560" height="44.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -86,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="96" y="-728"/>
         </scene>
-        <!--Happiness View Controller-->
+        <!--History Happiness View Controller-->
         <scene sceneID="gY9-ud-bmT">
             <objects>
-                <viewController id="6OP-pD-A2W" customClass="HappinessViewController" customModule="Psychology" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6OP-pD-A2W" customClass="HistoryHappinessViewController" customModule="Psychology" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VUd-ew-SN9"/>
                         <viewControllerLayoutGuide type="bottom" id="y9M-Z4-fbx"/>
@@ -111,7 +111,15 @@
                             <constraint firstItem="53g-wu-ruX" firstAttribute="leading" secondItem="kPh-Pw-6lP" secondAttribute="leading" id="s9U-wY-BXB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="90o-BT-fjj"/>
+                    <navigationItem key="navigationItem" id="90o-BT-fjj">
+                        <barButtonItem key="rightBarButtonItem" title="History" id="bK6-il-3lh">
+                            <connections>
+                                <segue destination="jZv-oT-NcD" kind="popoverPresentation" identifier="show history" popoverAnchorBarButtonItem="bK6-il-3lh" id="p3z-dv-0iS">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="faceView" destination="53g-wu-ruX" id="Kp6-LG-aCH"/>
                     </connections>
@@ -119,6 +127,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbs-kg-X8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="96" y="195"/>
+        </scene>
+        <!--History View Controller-->
+        <scene sceneID="fh9-Vh-yIf">
+            <objects>
+                <viewController id="jZv-oT-NcD" customClass="HistoryViewController" customModule="Psychology" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wuz-sj-xO8"/>
+                        <viewControllerLayoutGuide type="bottom" id="sEf-7T-UXg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2fH-Ff-q0f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xZv-BY-Eii">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xZv-BY-Eii" secondAttribute="trailing" id="1hz-sG-H5m"/>
+                            <constraint firstItem="xZv-BY-Eii" firstAttribute="top" secondItem="2fH-Ff-q0f" secondAttribute="top" id="Cy1-MV-u9v"/>
+                            <constraint firstItem="xZv-BY-Eii" firstAttribute="bottom" secondItem="sEf-7T-UXg" secondAttribute="top" id="jnV-JY-XAl"/>
+                            <constraint firstItem="xZv-BY-Eii" firstAttribute="leading" secondItem="2fH-Ff-q0f" secondAttribute="leading" id="zZK-2D-Yyh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="historyTextView" destination="xZv-BY-Eii" id="6uO-VU-EWr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Azq-i2-jLo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="766" y="195"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DuU-If-OiB">
