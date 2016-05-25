@@ -69,7 +69,7 @@ class ViewController: UIViewController {
 
                 }
                 else {
-                   aspectRatioConstraint = nil
+                    aspectRatioConstraint = nil
                 }
             }
         }
