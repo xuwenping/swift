@@ -79,8 +79,22 @@
                     <view key="view" contentMode="scaleToFill" id="9Sv-rH-dDB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vbw-FA-B7w">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Vbw-FA-B7w" secondAttribute="trailing" id="2dA-Qh-td9"/>
+                            <constraint firstItem="Vbw-FA-B7w" firstAttribute="leading" secondItem="9Sv-rH-dDB" secondAttribute="leading" id="YeZ-s7-xdl"/>
+                            <constraint firstItem="Vbw-FA-B7w" firstAttribute="bottom" secondItem="SEj-V9-cs0" secondAttribute="top" id="gKh-RL-DM4"/>
+                            <constraint firstItem="Vbw-FA-B7w" firstAttribute="top" secondItem="9Sv-rH-dDB" secondAttribute="top" id="u4l-Ew-dXM"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="scrollView" destination="Vbw-FA-B7w" id="eKD-FW-WKb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pf4-bS-Ehy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
