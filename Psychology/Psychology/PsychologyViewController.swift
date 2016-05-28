@@ -11,9 +11,9 @@ import UIKit
 class PsychologyViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var destination = segue.destinationViewController as? UIViewController
+        var destination = segue.destinationViewController as UIViewController
         if let nvc = destination as? UINavigationController {
-            destination = nvc.visibleViewController
+            destination = nvc.visibleViewController!
         }
         
         if let hvc = destination as? HappinessViewController {
