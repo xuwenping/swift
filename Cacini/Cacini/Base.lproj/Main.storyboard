@@ -21,21 +21,21 @@
                                 <rect key="frame" x="274" y="247" width="52" height="30"/>
                                 <state key="normal" title="Woman"/>
                                 <connections>
-                                    <segue destination="uEk-KU-kp2" kind="showDetail" identifier="Woman" id="qVr-lb-ItQ"/>
+                                    <segue destination="xz0-oJ-hLr" kind="showDetail" identifier="Woman" id="qVr-lb-ItQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lp-NR-yqh">
                                 <rect key="frame" x="282" y="323" width="36" height="30"/>
                                 <state key="normal" title="Child"/>
                                 <connections>
-                                    <segue destination="uEk-KU-kp2" kind="showDetail" identifier="Child" id="dmo-XL-AxU"/>
+                                    <segue destination="xz0-oJ-hLr" kind="showDetail" identifier="Child" id="dmo-XL-AxU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDU-0w-xer">
                                 <rect key="frame" x="285" y="285" width="30" height="30"/>
                                 <state key="normal" title="Man"/>
                                 <connections>
-                                    <segue destination="uEk-KU-kp2" kind="showDetail" identifier="Man" id="DwS-Dl-ZTH"/>
+                                    <segue destination="xz0-oJ-hLr" kind="showDetail" identifier="Man" id="DwS-Dl-ZTH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -61,7 +61,7 @@
                 <splitViewController id="0zL-cx-lvm" sceneMemberID="viewController">
                     <connections>
                         <segue destination="eNQ-ob-5dx" kind="relationship" relationship="masterViewController" id="1KD-B2-fpN"/>
-                        <segue destination="uEk-KU-kp2" kind="relationship" relationship="detailViewController" id="B9R-RX-sMD"/>
+                        <segue destination="xz0-oJ-hLr" kind="relationship" relationship="detailViewController" id="B9R-RX-sMD"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPb-He-Gnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -92,13 +92,14 @@
                             <constraint firstItem="Vbw-FA-B7w" firstAttribute="top" secondItem="9Sv-rH-dDB" secondAttribute="top" id="u4l-Ew-dXM"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="3HQ-gv-9rO"/>
                     <connections>
                         <outlet property="scrollView" destination="Vbw-FA-B7w" id="eKD-FW-WKb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pf4-bS-Ehy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="684" y="822"/>
+            <point key="canvasLocation" x="1496" y="822"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IDE-hP-hKN">
@@ -118,8 +119,26 @@
             </objects>
             <point key="canvasLocation" x="684" y="-90"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="AnG-sK-wCh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xz0-oJ-hLr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="753-e0-A5c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uEk-KU-kp2" kind="relationship" relationship="rootViewController" id="T2G-vD-Tt5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jih-AT-xPw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="684" y="822"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dmo-XL-AxU"/>
+        <segue reference="qVr-lb-ItQ"/>
     </inferredMetricsTieBreakers>
 </document>
