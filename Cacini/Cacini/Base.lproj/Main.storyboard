@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0zL-cx-lvm">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Cacini" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqr-j5-ubh">
+                                <rect key="frame" x="274" y="247" width="52" height="30"/>
+                                <state key="normal" title="Woman"/>
+                                <connections>
+                                    <segue destination="uEk-KU-kp2" kind="showDetail" identifier="Woman" id="qVr-lb-ItQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lp-NR-yqh">
+                                <rect key="frame" x="282" y="323" width="36" height="30"/>
+                                <state key="normal" title="Child"/>
+                                <connections>
+                                    <segue destination="uEk-KU-kp2" kind="showDetail" identifier="Child" id="dmo-XL-AxU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pDU-0w-xer">
+                                <rect key="frame" x="285" y="285" width="30" height="30"/>
+                                <state key="normal" title="Man"/>
+                                <connections>
+                                    <segue destination="uEk-KU-kp2" kind="showDetail" identifier="Man" id="DwS-Dl-ZTH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1lp-NR-yqh" firstAttribute="top" secondItem="pDU-0w-xer" secondAttribute="bottom" constant="8" id="7MG-xu-vOc"/>
+                            <constraint firstItem="1lp-NR-yqh" firstAttribute="centerX" secondItem="pDU-0w-xer" secondAttribute="centerX" id="CYe-Uc-m0p"/>
+                            <constraint firstItem="pDU-0w-xer" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MQh-mE-FdH"/>
+                            <constraint firstItem="Wqr-j5-ubh" firstAttribute="centerX" secondItem="pDU-0w-xer" secondAttribute="centerX" id="MSp-cR-5rD"/>
+                            <constraint firstItem="pDU-0w-xer" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nsQ-hy-b6M"/>
+                            <constraint firstItem="pDU-0w-xer" firstAttribute="top" secondItem="Wqr-j5-ubh" secondAttribute="bottom" constant="8" id="uqs-ud-bVP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="AP9-iA-7N2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1448" y="-90"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="0Ci-Nu-xvl">
+            <objects>
+                <splitViewController id="0zL-cx-lvm" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="eNQ-ob-5dx" kind="relationship" relationship="masterViewController" id="1KD-B2-fpN"/>
+                        <segue destination="uEk-KU-kp2" kind="relationship" relationship="detailViewController" id="B9R-RX-sMD"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gPb-He-Gnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-60" y="282"/>
+        </scene>
+        <!--Image View Contorller-->
+        <scene sceneID="zwq-g7-u50">
+            <objects>
+                <viewController id="uEk-KU-kp2" customClass="ImageViewContorller" customModule="Cacini" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JeW-4V-yfk"/>
+                        <viewControllerLayoutGuide type="bottom" id="SEj-V9-cs0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Sv-rH-dDB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pf4-bS-Ehy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="684" y="822"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IDE-hP-hKN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eNQ-ob-5dx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0CF-oU-4f8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="aEe-GJ-Nmi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GAe-7A-3NB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="684" y="-90"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="dmo-XL-AxU"/>
+    </inferredMetricsTieBreakers>
+</document>

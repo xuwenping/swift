@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		28C35B0E1CF5E90B0027406C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C35B0D1CF5E90B0027406C /* AppDelegate.swift */; };
+		28C35B101CF5E90B0027406C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C35B0F1CF5E90B0027406C /* ViewController.swift */; };
+		28C35B131CF5E90B0027406C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C35B111CF5E90B0027406C /* Main.storyboard */; };
+		28C35B151CF5E90B0027406C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28C35B141CF5E90B0027406C /* Assets.xcassets */; };
+		28C35B181CF5E90B0027406C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28C35B161CF5E90B0027406C /* LaunchScreen.storyboard */; };
+		28C35B231CF5E90B0027406C /* CaciniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C35B221CF5E90B0027406C /* CaciniTests.swift */; };
+		28C35B2E1CF5E90B0027406C /* CaciniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C35B2D1CF5E90B0027406C /* CaciniUITests.swift */; };
+		28C35B3C1CF5E98C0027406C /* ImageViewContorller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C35B3B1CF5E98C0027406C /* ImageViewContorller.swift */; };
+		28EB09C71CF87BDD004B2F2F /* DemoURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EB09C61CF87BDD004B2F2F /* DemoURL.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		28C35B1F1CF5E90B0027406C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28C35B021CF5E90A0027406C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28C35B091CF5E90A0027406C;
+			remoteInfo = Cacini;
+		};
+		28C35B2A1CF5E90B0027406C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28C35B021CF5E90A0027406C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28C35B091CF5E90A0027406C;
+			remoteInfo = Cacini;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		28C35B0A1CF5E90A0027406C /* Cacini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cacini.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28C35B0D1CF5E90B0027406C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		28C35B0F1CF5E90B0027406C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		28C35B121CF5E90B0027406C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		28C35B141CF5E90B0027406C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		28C35B171CF5E90B0027406C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		28C35B191CF5E90B0027406C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28C35B1E1CF5E90B0027406C /* CaciniTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaciniTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		28C35B221CF5E90B0027406C /* CaciniTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaciniTests.swift; sourceTree = "<group>"; };
+		28C35B241CF5E90B0027406C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28C35B291CF5E90B0027406C /* CaciniUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaciniUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		28C35B2D1CF5E90B0027406C /* CaciniUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaciniUITests.swift; sourceTree = "<group>"; };
+		28C35B2F1CF5E90B0027406C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28C35B3B1CF5E98C0027406C /* ImageViewContorller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewContorller.swift; sourceTree = "<group>"; };
+		28EB09C61CF87BDD004B2F2F /* DemoURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoURL.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		28C35B071CF5E90A0027406C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28C35B1B1CF5E90B0027406C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28C35B261CF5E90B0027406C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		28C35B011CF5E90A0027406C = {
+			isa = PBXGroup;
+			children = (
+				28C35B0C1CF5E90B0027406C /* Cacini */,
+				28C35B211CF5E90B0027406C /* CaciniTests */,
+				28C35B2C1CF5E90B0027406C /* CaciniUITests */,
+				28C35B0B1CF5E90A0027406C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		28C35B0B1CF5E90A0027406C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28C35B0A1CF5E90A0027406C /* Cacini.app */,
+				28C35B1E1CF5E90B0027406C /* CaciniTests.xctest */,
+				28C35B291CF5E90B0027406C /* CaciniUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28C35B0C1CF5E90B0027406C /* Cacini */ = {
+			isa = PBXGroup;
+			children = (
+				28C35B3B1CF5E98C0027406C /* ImageViewContorller.swift */,
+				28C35B0F1CF5E90B0027406C /* ViewController.swift */,
+				28EB09C61CF87BDD004B2F2F /* DemoURL.swift */,
+				28C35B111CF5E90B0027406C /* Main.storyboard */,
+				28C35B141CF5E90B0027406C /* Assets.xcassets */,
+				28C35B0D1CF5E90B0027406C /* AppDelegate.swift */,
+				28C35B161CF5E90B0027406C /* LaunchScreen.storyboard */,
+				28C35B191CF5E90B0027406C /* Info.plist */,
+			);
+			path = Cacini;
+			sourceTree = "<group>";
+		};
+		28C35B211CF5E90B0027406C /* CaciniTests */ = {
+			isa = PBXGroup;
+			children = (
+				28C35B221CF5E90B0027406C /* CaciniTests.swift */,
+				28C35B241CF5E90B0027406C /* Info.plist */,
+			);
+			path = CaciniTests;
+			sourceTree = "<group>";
+		};
+		28C35B2C1CF5E90B0027406C /* CaciniUITests */ = {
+			isa = PBXGroup;
+			children = (
+				28C35B2D1CF5E90B0027406C /* CaciniUITests.swift */,
+				28C35B2F1CF5E90B0027406C /* Info.plist */,
+			);
+			path = CaciniUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		28C35B091CF5E90A0027406C /* Cacini */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28C35B321CF5E90B0027406C /* Build configuration list for PBXNativeTarget "Cacini" */;
+			buildPhases = (
+				28C35B061CF5E90A0027406C /* Sources */,
+				28C35B071CF5E90A0027406C /* Frameworks */,
+				28C35B081CF5E90A0027406C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cacini;
+			productName = Cacini;
+			productReference = 28C35B0A1CF5E90A0027406C /* Cacini.app */;
+			productType = "com.apple.product-type.application";
+		};
+		28C35B1D1CF5E90B0027406C /* CaciniTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28C35B351CF5E90B0027406C /* Build configuration list for PBXNativeTarget "CaciniTests" */;
+			buildPhases = (
+				28C35B1A1CF5E90B0027406C /* Sources */,
+				28C35B1B1CF5E90B0027406C /* Frameworks */,
+				28C35B1C1CF5E90B0027406C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28C35B201CF5E90B0027406C /* PBXTargetDependency */,
+			);
+			name = CaciniTests;
+			productName = CaciniTests;
+			productReference = 28C35B1E1CF5E90B0027406C /* CaciniTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		28C35B281CF5E90B0027406C /* CaciniUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28C35B381CF5E90B0027406C /* Build configuration list for PBXNativeTarget "CaciniUITests" */;
+			buildPhases = (
+				28C35B251CF5E90B0027406C /* Sources */,
+				28C35B261CF5E90B0027406C /* Frameworks */,
+				28C35B271CF5E90B0027406C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28C35B2B1CF5E90B0027406C /* PBXTargetDependency */,
+			);
+			name = CaciniUITests;
+			productName = CaciniUITests;
+			productReference = 28C35B291CF5E90B0027406C /* CaciniUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		28C35B021CF5E90A0027406C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = devinxu;
+				TargetAttributes = {
+					28C35B091CF5E90A0027406C = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = CVA598TCU8;
+					};
+					28C35B1D1CF5E90B0027406C = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = CVA598TCU8;
+						TestTargetID = 28C35B091CF5E90A0027406C;
+					};
+					28C35B281CF5E90B0027406C = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = CVA598TCU8;
+						TestTargetID = 28C35B091CF5E90A0027406C;
+					};
+				};
+			};
+			buildConfigurationList = 28C35B051CF5E90A0027406C /* Build configuration list for PBXProject "Cacini" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 28C35B011CF5E90A0027406C;
+			productRefGroup = 28C35B0B1CF5E90A0027406C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28C35B091CF5E90A0027406C /* Cacini */,
+				28C35B1D1CF5E90B0027406C /* CaciniTests */,
+				28C35B281CF5E90B0027406C /* CaciniUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		28C35B081CF5E90A0027406C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28C35B181CF5E90B0027406C /* LaunchScreen.storyboard in Resources */,
+				28C35B151CF5E90B0027406C /* Assets.xcassets in Resources */,
+				28C35B131CF5E90B0027406C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28C35B1C1CF5E90B0027406C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28C35B271CF5E90B0027406C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		28C35B061CF5E90A0027406C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28EB09C71CF87BDD004B2F2F /* DemoURL.swift in Sources */,
+				28C35B3C1CF5E98C0027406C /* ImageViewContorller.swift in Sources */,
+				28C35B101CF5E90B0027406C /* ViewController.swift in Sources */,
+				28C35B0E1CF5E90B0027406C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28C35B1A1CF5E90B0027406C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28C35B231CF5E90B0027406C /* CaciniTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28C35B251CF5E90B0027406C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28C35B2E1CF5E90B0027406C /* CaciniUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		28C35B201CF5E90B0027406C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28C35B091CF5E90A0027406C /* Cacini */;
+			targetProxy = 28C35B1F1CF5E90B0027406C /* PBXContainerItemProxy */;
+		};
+		28C35B2B1CF5E90B0027406C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28C35B091CF5E90A0027406C /* Cacini */;
+			targetProxy = 28C35B2A1CF5E90B0027406C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		28C35B111CF5E90B0027406C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28C35B121CF5E90B0027406C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		28C35B161CF5E90B0027406C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28C35B171CF5E90B0027406C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		28C35B301CF5E90B0027406C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		28C35B311CF5E90B0027406C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		28C35B331CF5E90B0027406C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Cacini/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = bullsoft.com.Cacini;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		28C35B341CF5E90B0027406C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Cacini/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = bullsoft.com.Cacini;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		28C35B361CF5E90B0027406C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CaciniTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = bullsoft.com.CaciniTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cacini.app/Cacini";
+			};
+			name = Debug;
+		};
+		28C35B371CF5E90B0027406C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CaciniTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = bullsoft.com.CaciniTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cacini.app/Cacini";
+			};
+			name = Release;
+		};
+		28C35B391CF5E90B0027406C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CaciniUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = bullsoft.com.CaciniUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Cacini;
+			};
+			name = Debug;
+		};
+		28C35B3A1CF5E90B0027406C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CaciniUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = bullsoft.com.CaciniUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Cacini;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		28C35B051CF5E90A0027406C /* Build configuration list for PBXProject "Cacini" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28C35B301CF5E90B0027406C /* Debug */,
+				28C35B311CF5E90B0027406C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28C35B321CF5E90B0027406C /* Build configuration list for PBXNativeTarget "Cacini" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28C35B331CF5E90B0027406C /* Debug */,
+				28C35B341CF5E90B0027406C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28C35B351CF5E90B0027406C /* Build configuration list for PBXNativeTarget "CaciniTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28C35B361CF5E90B0027406C /* Debug */,
+				28C35B371CF5E90B0027406C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28C35B381CF5E90B0027406C /* Build configuration list for PBXNativeTarget "CaciniUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28C35B391CF5E90B0027406C /* Debug */,
+				28C35B3A1CF5E90B0027406C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 28C35B021CF5E90A0027406C /* Project object */;
+}
