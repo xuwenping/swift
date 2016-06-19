@@ -44,7 +44,7 @@ public class Tweet : CustomStringConvertible
                             var adjustedRange = inText.startIndex.advancedBy(start)...inText.startIndex.advancedBy(end-1)
                             var keywordInText = inText.substringWithRange(adjustedRange)
                             if prefix != nil && !keywordInText.hasPrefix(prefix!) && start > 0 {
-//                                adjustedRange = advance(inText.startIndex, start-1)...advance(inText.startIndex, end-2)
+                                //adjustedRange = advance(inText.startIndex, start-1)...advance(inText.startIndex, end-2)
                                 adjustedRange = inText.startIndex.advancedBy(start-1)...inText.startIndex.advancedBy(end-2)
                                 keywordInText = inText.substringWithRange(adjustedRange)
                             }

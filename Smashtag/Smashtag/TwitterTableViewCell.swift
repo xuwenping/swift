@@ -29,11 +29,31 @@ class TwitterTableViewCell: UITableViewCell {
         
         if let tweet = self.tweet {
             tweetTextLabel?.text = tweet.text
+            
             if tweetTextLabel?.text != nil {
                 for _ in tweet.media {
                     tweetTextLabel.text! += " 📷"
                 }
             }
+            
+            let attributeString = NSMutableAttributedString(string: tweet.text)
+            
+            // 设置hashtag为红色
+            for i in tweet.hashtags {
+                attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.redColor(), range: i.nsrange)
+            }
+            
+            // 设置usl为黄色
+            for i in tweet.urls {
+                attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blueColor(), range: i.nsrange)
+            }
+            
+            // 设置user screen name为绿色
+            for i in tweet.userMentions {
+                attributeString.addAttribute(NSForegroundColorAttributeName, value: UIColor.greenColor(), range: i.nsrange)
+            }
+            
+            tweetTextLabel?.attributedText = attributeString
             
             tweetScreenNameLabel?.text = "\(tweet.user)"
             
