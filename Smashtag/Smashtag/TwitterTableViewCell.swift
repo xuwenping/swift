@@ -16,6 +16,12 @@ class TwitterTableViewCell: UITableViewCell {
     
     @IBOutlet weak var tweetTextLabel: UILabel!
     
+    @IBOutlet weak var tweetCreateTimeLabel: UILabel!
+    
+    let hashtag: String? = nil
+    //let image: UIImage?
+    let urls: String? = nil
+    
     var tweet: Tweet? {
         didSet {
             updateUI()
@@ -26,8 +32,13 @@ class TwitterTableViewCell: UITableViewCell {
         tweetProfileImageView?.image = nil
         tweetScreenNameLabel?.text = nil
         tweetTextLabel?.attributedText = nil
+        tweetCreateTimeLabel?.text = nil
         
         if let tweet = self.tweet {
+            let dateFormate = NSDateFormatter()
+            dateFormate.dateFormat = "h:mm a"
+            //print("test" + "\(dateFormate.stringFromDate(tweet.created))")
+            tweetCreateTimeLabel?.text = dateFormate.stringFromDate(tweet.created)
             tweetTextLabel?.text = tweet.text
             
             if tweetTextLabel?.text != nil {
